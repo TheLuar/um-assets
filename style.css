@@ -1,0 +1,47 @@
+html, body { height: 100% }
+
+body {
+    margin: 0;
+    background-color: #000000;
+    color: #DDDDDD;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#game {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    max-height: 480px;
+    width: 100%;
+    height: 100%;
+}
+
+#port-switch {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: calc(50% - 75px);
+    top: 10px;
+    width: 150px;
+    height: 26px;
+    background-color: #00000088;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #22DD22;
+    cursor: pointer;
+    z-index: 999;
+}

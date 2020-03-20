@@ -81,11 +81,12 @@ function tslog (a)
 {
     console.log(a);
 
-    if (a.indexOf('PORTALS~~') == 0)
+    if (/.+PORTALS~~/.test(a))
     {
+        const m = a.match(/.+PORTALS~~/);
         const b = a.substr(9);
 
-        console.log(JSON.parse(b));
+        console.log(m);
 
         //setLS();
     }
@@ -99,7 +100,7 @@ function init ()
     {
         const portal = portals[portalIDs[i]];
         
-        portal.location = [60 + 60 * i, 420];
+        portal.location = [45 + 45 * i, 425];
         portal.duration = 24024;
     }
     

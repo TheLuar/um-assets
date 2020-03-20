@@ -99,7 +99,8 @@ function init ()
     {
         const portal = portals[portalIDs[i]];
         
-        portal.location  = [50 + 50 * i, 430];
+        portal.location = [60 + 60 * i, 420];
+        portal.duration = 24024;
     }
     
     setFlashVars();

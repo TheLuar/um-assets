@@ -97,7 +97,7 @@ function init ()
 
     for (let i = 0; i < portalIDs.length; i++)
     {
-        portals[portalIDs[i]].location = [80 + 80 * i, 400];
+        portals[portalIDs[i]].location = [40 + 40 * i, 440];
     }
     
     setFlashVars();

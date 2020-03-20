@@ -83,7 +83,7 @@ function tslog (a)
 
     if (a.indexOf('PORTALS~~') == 0)
     {
-        b = a.substr(9);
+        const b = a.substr(9);
 
         console.log(JSON.parse(b));
 
@@ -102,7 +102,7 @@ function init ()
     
     setFlashVars();
 
-    game.data = 'bmmLoader.swf?version=' + Math.random();
+    game.data = 'bmmLoader.swf?version=' + (666 + Math.random());
 }
 
 

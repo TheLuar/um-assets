@@ -84,9 +84,9 @@ function tslog (a)
     if (/.+PORTALS~~/.test(a))
     {
         const m = a.match(/.+PORTALS~~/);
-        const b = a.substr(9);
+        const b = a.substr(m[0].length);
 
-        console.log(m);
+        console.log(JSON.parse(b));
 
         //setLS();
     }

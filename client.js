@@ -97,7 +97,12 @@ function init ()
 
     for (let i = 0; i < portalIDs.length; i++)
     {
-        portals[portalIDs[i]].location = [40 + 40 * i, 440];
+        const portal = portals[portalIDs[i]];
+        const today  = new Date();
+
+        portal.location  = [40 + 40 * i, 440];
+        portal.startDate = today.getTime();
+        portal.duration  = today.setDate(today.getDate() + 667);
     }
     
     setFlashVars();

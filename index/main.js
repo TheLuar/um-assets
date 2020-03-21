@@ -91,7 +91,7 @@ function init ()
         startDate: 1584435600,
         themeID: 6,
         campaignID: 10255,
-        bossID: ["RAMBOY"],
+        bossID: ["THE HAT KEEPER"],
         location: [0, 420],
         name: "Saint Patrick Special",
     };

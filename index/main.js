@@ -87,13 +87,14 @@ function init ()
     const portals = {};
 
     const portal = {
+        id: '10255',
         duration: 24000,
         startDate: 1584435600,
         themeID: 6,
         campaignID: 10255,
-        bossID: ["THE HAT KEEPER"],
+        bossID: ['RAMBOY'],
         location: [0, 420],
-        name: "Saint Patrick Special",
+        name: 'Saint Patrick Special',
     };
     
     for (let i = 0; i < 20; i++)
@@ -101,6 +102,8 @@ function init ()
         const o = Object.assign(portal);
 
         const x = i;
+
+        o.name = 'Patrick ' + i;
 
         o.location = [50 + 70 * x, 420];
         

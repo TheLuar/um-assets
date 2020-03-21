@@ -47,6 +47,7 @@ function switchPort ()
 
     elmFlashVars.value = elmFlashVars.value.replace(/(port=)\d+/, '$1' + ports[currentPort][0]);
     btnPortSwitch.innerText = ports[currentPort][1];
+    game.data += '';
 };
 
 function setFlashVars ()

@@ -78,6 +78,8 @@ function tslog (a)
         Object.assign(portals, p);
  
         setLS('portals', portals);
+
+        console.log(portals);
     }
 }
 

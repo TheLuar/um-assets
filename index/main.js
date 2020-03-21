@@ -84,18 +84,9 @@ function tslog (a)
 
 function init ()
 {
-    const portals = {};
+    const portals = getLS('portals', {});
 
-    const portal = {
-        id: '10255',
-        duration: 24000,
-        startDate: 1584435600,
-        themeID: 6,
-        campaignID: 10255,
-        bossID: ['RAMBOY'],
-        location: [0, 420],
-        name: 'Saint Patrick Special',
-    };
+    const portal = portals[Object.keys(portals)[0]];
     
     for (let i = 0; i < 20; i++)
     {

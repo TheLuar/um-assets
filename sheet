@@ -1,0 +1,17 @@
+net.battleMechsMulti.screens.missionBaseMap.BMScreenMissionBaseMap()
+
+    _loc7_ = _loc8_.locationID;
+}
+this.trackMissionEvent("Complete");
+remoteM.socketM.mission_complete(_loc7_,_loc6_);
+
+
+    _loc7_ = _loc8_.locationID;
+}
+this.trackMissionEvent("Complete");
+TsLogger.log("LocationID: " + _loc7_,"Difficulty: " + _loc6_);
+remoteM.socketM.mission_complete(_loc7_,_loc6_);
+
+
+
+DataManager linha 6710

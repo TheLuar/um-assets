@@ -84,31 +84,40 @@ function tslog (a)
 
 function init ()
 {
-    /*
-    let portals = {};
+    const portals = {};
 
-    for (let i = 0; i < 5; i++)
-    {
-        const portal = Object.assign({}, portalBase);
-        const index  = String(new Date().getTime()) + performance.now();
-
-        portal.name = 'Portal #' + (i + 1);
-        portal.location = [50 + 85 * i, 420];
-
-        portals[index] = portal;
-    }
-    */
-
+    const portal = {
+        '10255': {
+            duration: 24000,
+            startDate: 1584435600,
+            themeID: 6,
+            campaignID: 10255,
+            bossID: ["RAMBOY"],
+            location: [0, 420],
+            name: "Saint Patrick Special",
+        },
+    };
     
-    const portalIDs = Object.keys(portals);
-
-    for (let i = 0; i < portalIDs.length; i++)
+    for (let i = 0; i < 10; i++)
     {
-        const portal = portals[portalIDs[i]];
+        const o = Object.assign(portal);
+
+        portal.location = [50 + 70 * i, 420];
         
-        portal.location = [50 + 85 * i, 420];
-        portal.duration = 24024;
+        portals[portal.campaignID + i] = o;
     }
+
+    console.log(portals);
+
+    // const portalIDs = Object.keys(portals);
+
+    // for (let i = 0; i < portalIDs.length; i++)
+    // {
+    //     const portal = portals[portalIDs[i]];
+        
+    //     portal.location = [50 + 85 * i, 420];
+    //     portal.duration = 24024;
+    // }
 
     flashVars = {
         port: ports[currentPort][0],
@@ -124,13 +133,13 @@ function init ()
 
     btnPortSwitch.onclick = () => switchPort();
 
-    const strfv = 'flashVars = ' + JSON.stringify(flashVars)
-        .replace(/(".*?":".*?")/g, '\n    $1')
-        .replace(/"}/g, '"\n}')
-        .replace(/:"/g, ': "')
-        .replace(/"(.+)":/g, '$1:');
+    // const strfv = 'flashVars = ' + JSON.stringify(flashVars)
+    //     .replace(/(".*?":".*?")/g, '\n    $1')
+    //     .replace(/"}/g, '"\n}')
+    //     .replace(/:"/g, ': "')
+    //     .replace(/"(.+)":/g, '$1:');
 
-    console.log('%c' + strfv, 'font-weight:bold;font-size:125%;color:#004488');
+    // console.log('%c' + strfv, 'font-weight:bold;font-size:125%;color:#004488');
 }
 
 

@@ -79,9 +79,17 @@ function init ()
     {
         const portal = portals[portalIDs[i]];
         
-        portal.location = [50 + 100 * i, 420];
+        portal.location = [50 + 85 * i, 420];
         portal.duration = 24024;
     }
+
+    flashVars = {
+        port: ports[currentPort][0],
+        resourceURL: '',
+        disableFB: 'true',
+        version: '7401',
+        portals: JSON.stringify(portals),
+    };
     
     setFlashVars();
 
@@ -100,14 +108,5 @@ function init ()
 
 
 // Start
-
-flashVars = {
-    port: ports[currentPort][0],
-    resourceURL: '',
-    disableFB: 'true',
-    version: '7401',
-    portals: JSON.stringify(portals),
-    //itemsLibrary1Path: 'http://supermechs.com/resources/items/itemsLibrary1.swf?version=' + (666 + Math.random()),
-};
 
 init();

@@ -46,5 +46,6 @@ body {
     z-index: 999;
 }
 #port-switch::before {
-    content: 'CLIENT: ';
+    content: 'CLIENT:';
+    font-size: 75%;
 }

@@ -79,7 +79,7 @@ function init ()
     {
         const portal = portals[portalIDs[i]];
         
-        portal.location = [50 + 50 * i, 420];
+        portal.location = [50 + 100 * i, 420];
         portal.duration = 24024;
     }
     

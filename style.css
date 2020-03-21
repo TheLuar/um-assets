@@ -45,3 +45,6 @@ body {
     cursor: pointer;
     z-index: 999;
 }
+#port-switch::before {
+    content: 'CLIENT: ';
+}

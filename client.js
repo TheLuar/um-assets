@@ -16,9 +16,9 @@ const elmFlashVars = document.getElementById('flash-vars');
 
 const portals = getLS('portals', {});
 
-const ports = [['9010', 'BMMDEV'], ['915', 'NORMAL']];
+const ports = ['9010', '915'];
 
-let portID = 0;
+let currentPort = 0;
 
 
 // Functions
@@ -41,26 +41,18 @@ function setLS (key, data)
 
 function switchPort ()
 {
-    portID++;
+    currentPort++;
 
-    if (portID >= ports.length) portID = 0;
+    if (currentPort >= ports.length) currentPort = 0;
 
-    setPort(...port[portID]);
+    flashvars.value = flashvars.value.replace(/(port=)\d+/, '$1' + ports[currentPort]);
+    btnPortSwitch.innerText = portNames[currentPort];
 };
-
-function setPort (name, port)
-{
-    btnPortSwitch.innerText = name;
-    flashvars.value = flashvars.value.replace(/(port=)\d+/, '$1' + port);
-    
-    // Refresh object
-    game.data += '';
-}
 
 function setFlashVars ()
 {
     const flashVars = {
-        port: ports[0][0],
+        port: ports[currentPort],
         resourceURL: '',
         disableFB: '1',
         version: '7401',
@@ -70,6 +62,8 @@ function setFlashVars ()
     const keys = Object.keys(flashVars);
 
     elmFlashVars.value = keys.map(v => v += '=').join('&');
+    
+    btnPortSwitch.innerText = portNames[currentPort];
 
     for (const k of keys)
     {
@@ -87,7 +81,7 @@ function tslog (a)
         const b = a.substr(m[0].length);
 
         console.log(JSON.parse(b));
-
+ 
         //setLS();
     }
 }

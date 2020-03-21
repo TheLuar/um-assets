@@ -84,6 +84,7 @@ function tslog (a)
 
 function init ()
 {
+    /*
     let portals = {};
 
     for (let i = 0; i < 5; i++)
@@ -96,8 +97,9 @@ function init ()
 
         portals[index] = portal;
     }
+    */
 
-    /*
+    
     const portalIDs = Object.keys(portals);
 
     for (let i = 0; i < portalIDs.length; i++)
@@ -111,7 +113,6 @@ function init ()
 
         portals[Math.random()] = portal;
     }
-    */
 
     flashVars = {
         port: ports[currentPort][0],

@@ -20,6 +20,8 @@ const ports = [['9010', 'REGULAR'], ['915', 'BMMDEV']];
 
 let currentPort = 0;
 
+let flashVars = {};
+
 
 // Functions
 
@@ -52,15 +54,6 @@ function switchPort ()
 
 function setFlashVars ()
 {
-    const flashVars = {
-        port: ports[currentPort][0],
-        resourceURL: '',
-        disableFB: '1',
-        version: '7401',
-        portals: JSON.stringify(portals),
-        itemsLibrary1Path: 'http://supermechs.com/resources/items/itemsLibrary1.swf?version=' + (666 + Math.random()),
-    };
-    
     const keys = Object.keys(flashVars);
 
     elmFlashVars.value = keys.map(v => v += '=').join('&');
@@ -90,6 +83,8 @@ function tslog (a)
 
 function init ()
 {
+    console.log('%c ' + flashVars, 'background: #8888FF');
+
     const portalIDs = Object.keys(portals);
 
     for (let i = 0; i < portalIDs.length; i++)
@@ -109,5 +104,14 @@ function init ()
 
 
 // Start
+
+flashVars = {
+    port: ports[currentPort][0],
+    resourceURL: '',
+    disableFB: 'true',
+    version: '7401',
+    portals: JSON.stringify(portals),
+    //itemsLibrary1Path: 'http://supermechs.com/resources/items/itemsLibrary1.swf?version=' + (666 + Math.random()),
+};
 
 init();

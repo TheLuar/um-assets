@@ -25,22 +25,6 @@ let flashVars = {};
 
 // Functions
 
-function getLS (key, data)
-{
-    const json = localStorage.getItem(key);
-
-    if (json) return JSON.parse(json);
-
-    return setLS(key, data);
-}
-
-function setLS (key, data)
-{
-    localStorage.setItem(key, JSON.stringify(data));
-
-    return data;
-}
-
 function switchPort ()
 {
     currentPort++;
@@ -80,8 +64,10 @@ function tslog (a)
  
         setLS('portals', portals);
 
-        console.log('%c PORTALS UPDATED:', 'font-size:150%;color:882222');
+        console.log(' ');
+        console.log('%c PORTALS UPDATED:', 'font-weight:bold;font-size:150%;color:#882222;');
         console.log(portals);
+        console.log(' ');
     }
 }
 
@@ -107,7 +93,7 @@ function init ()
         .replace(/(".*?":".*?")/g, '\n    $1')
         .replace(/"}/g, '"\n}')
         .replace(/:"/g, ': "')
-        .replace(/"(.+)":/g, '$1:')
+        .replace(/"(.+)":/g, '$1:');
 
     console.log('%c' + strfv, 'font-weight:bold;font-size:125%;color:#004488');
 }

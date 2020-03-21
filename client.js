@@ -79,11 +79,11 @@ function tslog (a)
     if (/.+PORTALS~~/.test(a))
     {
         const m = a.match(/.+PORTALS~~/);
-        const b = a.substr(m[0].length);
+        const p = JSON.parse(a.substr(m[0].length));
 
-        console.log(JSON.parse(b));
+        Object.assign(portals, p);
  
-        //setLS();
+        setLS('portals', portals);
     }
 }
 

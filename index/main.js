@@ -105,13 +105,9 @@ function init ()
     for (let i = 0; i < portalIDs.length; i++)
     {
         const portal = portals[portalIDs[i]];
-
-        delete portals[portalIDs[i]];
         
         portal.location = [50 + 85 * i, 420];
         portal.duration = 24024;
-
-        portals[Math.random()] = portal;
     }
 
     flashVars = {

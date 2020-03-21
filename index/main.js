@@ -100,9 +100,11 @@ function init ()
     {
         const o = Object.assign(portal);
 
-        o.location = [50 + 70 * i, 420];
+        const x = i;
+
+        o.location = [50 + 70 * x, 420];
         
-        portals[10255 + i] = o;
+        portals[10255 + x] = o;
     }
 
     console.log(portals);

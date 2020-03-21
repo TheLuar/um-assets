@@ -22,6 +22,17 @@ let currentPort = 0;
 
 let flashVars = {};
 
+const portalBase = {
+    id: "10255",
+    duration: 24024,
+    startDate: 1584435600,
+    themeID: 6,
+    campaignID: 10255,
+    bossID: ["RAMBOY"],
+    location: [0, 0],
+    name: "",
+};
+
 
 // Functions
 
@@ -73,15 +84,34 @@ function tslog (a)
 
 function init ()
 {
+    let portals = {};
+
+    for (let i = 0; i < 5; i++)
+    {
+        const portal = Object.assign({}, portalBase);
+        const index  = String(new Date().getTime()) + performance.now();
+
+        portal.name = 'Portal #' + (i + 1);
+        portal.location = [50 + 85 * i, 420];
+
+        portals[index] = portal;
+    }
+
+    /*
     const portalIDs = Object.keys(portals);
 
     for (let i = 0; i < portalIDs.length; i++)
     {
         const portal = portals[portalIDs[i]];
+
+        delete portals[portalIDs[i]];
         
         portal.location = [50 + 85 * i, 420];
         portal.duration = 24024;
+
+        portals[Math.random()] = portal;
     }
+    */
 
     flashVars = {
         port: ports[currentPort][0],

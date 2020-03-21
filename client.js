@@ -45,7 +45,7 @@ function switchPort ()
 
     if (currentPort >= ports.length) currentPort = 0;
 
-    flashvars.value = flashvars.value.replace(/(port=)\d+/, '$1' + ports[currentPort][0]);
+    elmFlashVars.value = elmFlashVars.value.replace(/(port=)\d+/, '$1' + ports[currentPort][0]);
     btnPortSwitch.innerText = ports[currentPort][1];
 };
 

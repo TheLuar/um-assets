@@ -99,15 +99,12 @@ function init ()
     
     for (let i = 0; i < 20; i++)
     {
-        const o = Object.assign(portal);
-
-        const x = i;
+        const o = Object.assign({}, portal);
 
         o.name = 'Patrick ' + i;
-
-        o.location = [50 + 70 * x, 420];
+        o.location = [50 + 70 * i, 420];
         
-        portals[10255 + x] = o;
+        portals[10255 + i] = o;
     }
 
     console.log(portals);

@@ -70,15 +70,17 @@ function tslog (a)
 {
     console.log(a);
 
-    if (/.+PORTALS~~/.test(a))
+    const m = a.match(/^.*PORTALS~~/);
+
+    if (m)
     {
-        const m = a.match(/.+PORTALS~~/);
         const p = JSON.parse(a.substr(m[0].length));
 
         Object.assign(portals, p);
  
         setLS('portals', portals);
 
+        console.log('%c PORTALS UPDATED:', 'font-size:150%;color:882222');
         console.log(portals);
     }
 }

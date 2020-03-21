@@ -83,14 +83,6 @@ function tslog (a)
 
 function init ()
 {
-    const strfv = JSON.stringify(flashVars)
-        .replace(/"(\w+)":/g, '$1:')
-        .replace(/\{(.)/g, '{\n    $1')
-        .replace(/,/g, ',\n    ')
-        .replace(/}/g, ',\n}');
-
-    console.log('%c' + strfv, 'background: #DDEEFF; font-weight: bold; font-size: 125%');
-
     const portalIDs = Object.keys(portals);
 
     for (let i = 0; i < portalIDs.length; i++)
@@ -108,6 +100,14 @@ function init ()
     game.data = 'bmmLoader.swf?version=' + (666 + Math.random());
 
     btnPortSwitch.onclick = () => switchPort();
+
+    const strfv = 'flashVars = ' + JSON.stringify(flashVars)
+        .replace(/(".*?":".*?")/g, '\n    $1')
+        .replace(/"}/g, '"\n}')
+        .replace(/:"/g, ': "')
+        .replace(/"(.+)":/g, '$1:')
+
+    console.log('%c' + strfv, 'font-weight:bold;font-size:125%;color:#004488');
 }
 
 

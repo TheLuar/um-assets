@@ -83,13 +83,21 @@ function tslog (a)
 
 function init ()
 {
-    console.log('%c ' + flashVars, 'background: #8888FF');
+    const strfv = JSON.stringify(flashVars)
+        .replace(/"(\w+)":/g, '$1:')
+        .replace(/\{(.)/g, '{\n    $1')
+        .replace(/,/g, ',\n    ')
+        .replace(/}/g, ',\n}');
+
+    console.log('%c' + strfv, 'background: #DDEEFF; font-weight: bold; font-size: 125%');
 
     const portalIDs = Object.keys(portals);
 
     for (let i = 0; i < portalIDs.length; i++)
     {
         const portal = portals[portalIDs[i]];
+
+        console.log(portal);
         
         portal.location = [50 + 50 * i, 420];
         portal.duration = 24024;

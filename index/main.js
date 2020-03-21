@@ -58,6 +58,7 @@ function setFlashVars ()
         disableFB: '1',
         version: '7401',
         portals: JSON.stringify(portals),
+        itemsLibrary1Path: 'http://supermechs.com/resources/items/itemsLibrary1.swf?version=' + (666 + Math.random()),
     };
     
     const keys = Object.keys(flashVars);
@@ -95,7 +96,7 @@ function init ()
     {
         const portal = portals[portalIDs[i]];
         
-        portal.location = [45 + 45 * i, 425];
+        portal.location = [50 + 50 * i, 420];
         portal.duration = 24024;
     }
     

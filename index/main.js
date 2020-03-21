@@ -87,24 +87,22 @@ function init ()
     const portals = {};
 
     const portal = {
-        '10255': {
-            duration: 24000,
-            startDate: 1584435600,
-            themeID: 6,
-            campaignID: 10255,
-            bossID: ["RAMBOY"],
-            location: [0, 420],
-            name: "Saint Patrick Special",
-        },
+        duration: 24000,
+        startDate: 1584435600,
+        themeID: 6,
+        campaignID: 10255,
+        bossID: ["RAMBOY"],
+        location: [0, 420],
+        name: "Saint Patrick Special",
     };
     
-    for (let i = 0; i < 10; i++)
+    for (let i = 0; i < 20; i++)
     {
         const o = Object.assign(portal);
 
-        portal.location = [50 + 70 * i, 420];
+        o.location = [50 + 70 * i, 420];
         
-        portals[portal.campaignID + i] = o;
+        portals[10255 + i] = o;
     }
 
     console.log(portals);

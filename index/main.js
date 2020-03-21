@@ -124,7 +124,7 @@ function init ()
     
     setFlashVars();
 
-    game.data = 'bmmLoader.swf?version=' + (666 + Math.random());
+    game.data = 'bmmLoader.swf?version=7401';
 
     btnPortSwitch.onclick = () => switchPort();
 

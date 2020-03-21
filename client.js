@@ -16,7 +16,7 @@ const elmFlashVars = document.getElementById('flash-vars');
 
 const portals = getLS('portals', {});
 
-const ports = ['9010', '915'];
+const ports = [['9010', 'REGULAR'], ['915', 'BMMDEV']];
 
 let currentPort = 0;
 
@@ -45,14 +45,14 @@ function switchPort ()
 
     if (currentPort >= ports.length) currentPort = 0;
 
-    flashvars.value = flashvars.value.replace(/(port=)\d+/, '$1' + ports[currentPort]);
-    btnPortSwitch.innerText = portNames[currentPort];
+    flashvars.value = flashvars.value.replace(/(port=)\d+/, '$1' + ports[currentPort][0]);
+    btnPortSwitch.innerText = ports[currentPort][1];
 };
 
 function setFlashVars ()
 {
     const flashVars = {
-        port: ports[currentPort],
+        port: ports[currentPort][0],
         resourceURL: '',
         disableFB: '1',
         version: '7401',
@@ -63,7 +63,7 @@ function setFlashVars ()
 
     elmFlashVars.value = keys.map(v => v += '=').join('&');
     
-    btnPortSwitch.innerText = portNames[currentPort];
+    btnPortSwitch.innerText = ports[currentPort][1];
 
     for (const k of keys)
     {
@@ -101,6 +101,8 @@ function init ()
     setFlashVars();
 
     game.data = 'bmmLoader.swf?version=' + (666 + Math.random());
+
+    btnPortSwitch.onclick = () => switchPort();
 }
 
 

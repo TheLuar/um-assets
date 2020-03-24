@@ -22,17 +22,6 @@ let currentPort = 0;
 
 let flashVars = {};
 
-const portalBase = {
-    id: "10255",
-    duration: 24024,
-    startDate: 1584435600,
-    themeID: 6,
-    campaignID: 10255,
-    bossID: ["RAMBOY"],
-    location: [0, 0],
-    name: "",
-};
-
 
 // Functions
 
@@ -71,44 +60,31 @@ function tslog (a)
     {
         const p = JSON.parse(a.substr(m[0].length));
 
+        if (portals[p.id]) return;
+
         Object.assign(portals, p);
  
         setLS('portals', portals);
 
         console.log(' ');
-        console.log('%c PORTALS UPDATED:', 'font-weight:bold;font-size:150%;color:#882222;');
-        console.log(portals);
+        console.log('%cPortal added to collection.', 'font-weight:bold;font-size:150%;color:#AA3333;');
+        console.log(Object.keys(portals));
+        console.log(p);
         console.log(' ');
     }
 }
 
 function init ()
 {
-    const portals = getLS('portals', {});
+    const portalIDs = Object.keys(portals);
 
-    const portal = portals[Object.keys(portals)[0]];
-    
-    for (let i = 0; i < 20; i++)
+    for (let i = 0; i < portalIDs.length; i++)
     {
-        const o = Object.assign({}, portal);
-
-        o.name = 'Patrick ' + i;
-        o.location = [50 + 70 * i, 420];
+        const portal = portals[portalIDs[i]];
         
-        portals[10255 + i] = o;
+        portal.location = [50 + 85 * i, 420];
+        portal.duration = 24024;
     }
-
-    console.log(portals);
-
-    // const portalIDs = Object.keys(portals);
-
-    // for (let i = 0; i < portalIDs.length; i++)
-    // {
-    //     const portal = portals[portalIDs[i]];
-        
-    //     portal.location = [50 + 85 * i, 420];
-    //     portal.duration = 24024;
-    // }
 
     flashVars = {
         port: ports[currentPort][0],

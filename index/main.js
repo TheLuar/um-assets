@@ -86,7 +86,7 @@ function init ()
         port: ports[currentPort][0],
         resourceURL: '',
         disableFB: 'true',
-        version: String(new Date().getTime()),
+        version: 7500,
         portals: JSON.stringify(portals),
     };
     

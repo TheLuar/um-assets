@@ -27,6 +27,18 @@ let currentPort = 0;
 
 let flashVars = {};
 
+const tslogDataParsers =
+{
+    login (data)
+    {
+        console.log(boo);
+        console.log(data);
+        console.log(data);
+    }
+};
+
+const doNotLog = [];
+
 
 // Functions
 
@@ -57,17 +69,63 @@ function setFlashVars ()
 
 function tslog (a)
 {
-    const style = regExps.TSLogCustomPrefix.test(a) ? 'font-weight: bold; color: #4488FF' : 'font-size: 75%';
+    const jsonStringMatch = a.match(regExps.json);
+    const prefixMatch = a.match(/\[@(\w*)\]/);
 
-    console.log('%c' + a, style);
+    if (prefixMatch)
+    {
+        const key = prefixMatch[1];
+        let data = null;
 
-    const JSONString = a.match(regExps.json)[0];
+        try
+        {
+            data = JSON.parse(jsonStringMatch[0]);
+        }
+        catch (err)
+        {
+            console.log('%ccould not parse data:\n' + a, 'font-weight:bold;color:#FF8844');
+            return;
+        }
 
-    if (JSONString.length <= 2) return;
+        if (key)
+        {
+            const parser = tslogDataParsers[key];
 
-    console.log('%cDATA:', style);
-    console.log(JSON.parse(JSONString));
-    console.log(' ');
+            if (parser) parser(data);
+
+            if (doNotLog.includes(key))
+            {
+                console.log('%c' + prefixMatch[0], 'font-weight:bold;color:#4488FF');
+                return;
+            }
+        }
+
+        console.log('%c' + a, 'font-weight:bold;color:#44FF88');
+        console.log(data, '\n');
+    }
+    else
+    {
+        let style = 'font-size:80%';
+
+        if (jsonStringMatch)
+        {
+            let data = null;
+
+            try
+            {
+                data = JSON.parse(jsonStringMatch[0]);
+            }
+            catch (err)
+            {
+                style = 'font-weight:bold;color:#FF8844';
+                console.log('%ccould not parse data:', style);
+                return;
+            }
+
+            console.log('%c' + a, style);
+            if (data) console.log(data, '\n');
+        }
+    }
 }
 
 function init ()

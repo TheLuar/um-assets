@@ -31,10 +31,13 @@ const tslogDataParsers =
 {
     login (data)
     {
-        console.log(boo);
         console.log(data);
+    },
+    portal (data)
+    {
+        console.log('protale');
         console.log(data);
-    }
+    },
 };
 
 const doNotLog = [];

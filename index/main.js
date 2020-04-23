@@ -89,7 +89,6 @@ function tslog (a)
 		catch (err)
 		{
 			console.log('%ccould not parse data:\n' + a, 'font-weight:bold;color:#FF8844')
-			return
 		}
 
 		if (key)

@@ -94,7 +94,11 @@ function tslog (a)
 		{
 			const parser = tslogDataParsers[key]
 
-			if (parser) parser(data)
+			if (parser)
+			{
+				if (data) parser(data)
+				else parser(a)
+			}
 
 			if (doNotLog.includes(key))
 			{

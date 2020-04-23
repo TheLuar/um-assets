@@ -53,7 +53,7 @@ body {
 }
 
 @media (min-width: 802px), (min-height: 482px) {
-    body {
-        background-color: #880000;
+    #game {
+        border-color: #FF0000;
     }
 }

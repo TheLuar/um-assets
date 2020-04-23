@@ -52,7 +52,7 @@ body {
     font-size: 70%;
 }
 
-@media (min-width: 802px), (min-height: 482px) {
+@media (max-width: 802px), (max-height: 482px) {
     #game {
         border-color: #FF0000;
     }

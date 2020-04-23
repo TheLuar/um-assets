@@ -41,7 +41,7 @@ const tslogDataParsers =
 	},
 }
 
-const doNotLog = []
+const doNotLog = ['login']
 
 
 // Functions

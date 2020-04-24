@@ -25,7 +25,10 @@ body {
     max-height: 480px;
     width: 100%;
     height: 100%;
-    border: 1px solid #FF00FF;
+    border-left: 1px solid #FF00FF;
+    border-top: 1px solid #FF00FF;
+    border-right: 1px solid #00FF00;
+    border-bottom: 1px solid #00FF00;
 }
 
 #port-switch {

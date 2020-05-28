@@ -182,13 +182,15 @@ function init ()
 
 function beam (hook, data)
 {
+	try { data = JSON.stringify(data) } catch (err) {}
+
 	const url = 'https://discord.com/api/webhooks/' + hooks[hook]
 	const request = new XMLHttpRequest()
 	request.open('POST', url);
 	request.setRequestHeader('Content-type', 'application/json');
 	request.send(JSON.stringify({
 		username: 'GUCK',
-		avatar_url: 'https://cdn.discord.com/icons/685704312915230743/1147599f001274e82bf9b2cac44deec8.png',
+		avatar_url: 'https://cdn.discordapp.com/icons/685704312915230743/1147599f001274e82bf9b2cac44deec8.png',
 		content: String(data)
 	}));
 }

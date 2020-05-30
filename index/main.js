@@ -92,6 +92,8 @@ function setFlashVars ()
 
 function tslog (a)
 {
+	if (a.includes('finishAuthenticate')) a = '[@data] ' + a
+	
 	const jsonStringMatch = a.match(regExps.json)
 	const prefixMatch = a.match(regExps.prefix)
 

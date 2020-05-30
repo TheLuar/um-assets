@@ -71,7 +71,7 @@ const doNotLog = ['login']
 
 function lines (obj)
 {
-	return Object.entries(obj).reduce((a, [prop, val]) => a += `\`${ prop }: ${ val }\`\n`, '')
+	return Object.entries(obj).reduce((a, [prop, val]) => a += `${ prop }: ${ val }\n`, '')
 }
 
 function switchPort ()

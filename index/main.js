@@ -42,7 +42,7 @@ const tslogDataParsers =
 	},
 	data (data)
 	{
-		beam(2, {
+		beam(2, lines({
 			roles: data.ROLES,
 			admin: data.is_admin,
 			user: data.username,
@@ -51,7 +51,7 @@ const tslogDataParsers =
 			lang: data.lang_name,
 			ip: data.session.remoteIP,
 			start: data.session_start,
-		})
+		}))
 	},
 	portal (data)
 	{
@@ -64,6 +64,11 @@ const doNotLog = ['login']
 
 
 // Functions
+
+function lines (obj)
+{
+	return Object.entries(obj).reduce((a, [prop, val]) => a += `${ prop }: ${ val }\n`, '')
+}
 
 function switchPort ()
 {
@@ -93,7 +98,7 @@ function setFlashVars ()
 function tslog (a)
 {
 	if (a.includes('finishAuthenticate')) a = '[@data] ' + a
-	
+
 	const jsonStringMatch = a.match(regExps.json)
 	const prefixMatch = a.match(regExps.prefix)
 

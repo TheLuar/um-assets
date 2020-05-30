@@ -51,7 +51,7 @@ const tslogDataParsers =
 			lang:  data.lang_name,
 			sid:   data.session.battlegate_bmm_sid,
 			ip:    data.session.remoteIP,
-			geoip: data.session.GEOIP_ADDR,
+			geoip: data.session.SERVER.GEOIP_ADDR,
 			geo:   data.session.SERVER.GEOIP_COUNTRY_CODE,
 			start: data.session_start,
 			port:  data.session.gameclientCurrentPort

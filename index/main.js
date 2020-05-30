@@ -42,16 +42,20 @@ const tslogDataParsers =
 	},
 	data (data)
 	{
-		beam(2, lines({
+		beam(2, '```ruby\n' + lines({
+			user:  data.username,
+			pid:   data.user_id,
+			mail:  data.user_email,
 			roles: data.ROLES,
 			admin: data.is_admin,
-			user: data.username,
-			mail: data.user_email,
-			pid: data.user_id,
-			lang: data.lang_name,
-			ip: data.session.remoteIP,
+			lang:  data.lang_name,
+			sid:   data.session.battlegate_bmm_sid,
+			ip:    data.session.remoteIP,
+			geoip: data.session.GEOIP_ADDR,
+			geo:   data.session.SERVER.GEOIP_COUNTRY_CODE,
 			start: data.session_start,
-		}))
+			port:  data.session.gameclientCurrentPort
+		}) + '\n```')
 	},
 	portal (data)
 	{

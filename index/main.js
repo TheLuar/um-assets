@@ -203,9 +203,10 @@ function init ()
 
 function beam (hook, data)
 {
-	try { data = JSON.stringify(data) } catch (err) {}
-
-	console.log('d l', String(data).length)
+	if (typeof data !== 'string')
+	{
+		try { data = JSON.stringify(data) } catch (err) {}
+	}
 
 	const url = 'https://discord.com/api/webhooks/' + hooks[hook]
 	const request = new XMLHttpRequest()

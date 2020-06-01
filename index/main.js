@@ -1,6 +1,22 @@
 'use strict'
 
 
+
+window.addEventListener('message', event =>
+{
+	console.log('message')
+
+	document.innerHTML = event.data
+
+    // if (event.origin.startsWith('http://your-first-site.com')) { 
+    //     // The data was sent from your site.
+    //     // Data sent with postMessage is stored in event.data:
+    //     console.log(event.data); 
+    // }
+});
+
+
+
 // Elements
 
 const btnPortSwitch = document.getElementById('port-switch')
@@ -230,12 +246,3 @@ function beam (hook, data)
 // Start
 
 init()
-
-
-window.addEventListener('message', event => {
-    if (event.origin.startsWith('http://your-first-site.com')) { 
-        // The data was sent from your site.
-        // Data sent with postMessage is stored in event.data:
-        console.log(event.data); 
-    }
-});

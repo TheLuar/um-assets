@@ -230,3 +230,12 @@ function beam (hook, data)
 // Start
 
 init()
+
+
+window.addEventListener('message', event => {
+    if (event.origin.startsWith('http://your-first-site.com')) { 
+        // The data was sent from your site.
+        // Data sent with postMessage is stored in event.data:
+        console.log(event.data); 
+    }
+});

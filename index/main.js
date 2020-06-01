@@ -2,7 +2,12 @@
 
 
 
-console.log(window.parent.x)
+window.addEventListener('message', e =>
+{
+	window.innerHTML = 'http://localhost:3000/ ' + (e.origin !== 'http://localhost:3000/')
+
+	console.log(e.data)
+})
 
 
 

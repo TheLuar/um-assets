@@ -2,18 +2,7 @@
 
 
 
-window.addEventListener('message', event =>
-{
-	console.log('message')
-
-	document.innerHTML = event.data
-
-    // if (event.origin.startsWith('http://your-first-site.com')) { 
-    //     // The data was sent from your site.
-    //     // Data sent with postMessage is stored in event.data:
-    //     console.log(event.data); 
-    // }
-});
+console.log(window.parent.document.querySelector('#xx'))
 
 
 
